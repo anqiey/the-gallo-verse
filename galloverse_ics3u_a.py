@@ -64,6 +64,10 @@ switch_maggie = "right"
 
 # ----------------------
 
+wind_x_angie = 0
+wind_y_angie = 0
+
+# ----------------------
 duncan_glow_x, duncan_glow_y, duncan_glow_radius = 315, 220, 70
 duncan_vignette_x, duncan_vignette_y, duncan_vignette_radius = 320, 240, 250
 
@@ -686,7 +690,183 @@ while running:
     if leaves_x_ocampo == -100: 
         bark_x_ocampo = 640 
         leaves_x_ocampo = 695
+        
+    # -----------ANGIE YAN
+    angie_width = 1280
+    angie_height = 1440
+    
+    wind_x_angie += 40
+    if wind_x_angie == WIDTH:
+        wind_x_angie = -160
+        wind_x_angie += 40
+
+    angie_x = 0
+    angie_y = 0
+
+    # SCREEN FILL
+    pygame.draw.rect(screen, (209, 215, 232), (angie_x, angie_y, angie_width, angie_height))
+
+    # HILL POINTS
+    hills1 = [
+        (0, 104), 
+        (0, 180),
+        (70, 180)
+    ]
+
+    hills2 = [
+        (32, 139),
+        (70, 180),
+        (146, 180)
+    ]
+
+    hills3 = [
+        (70, 151),
+        (128, 141),
+        (176, 180),
+        (65, 178)
+    ]
+
+    hills4 = [
+        (12, 135),
+        (124, 127),
+        (233, 180),
+        (72, 180)
+    ]
+
+    hills5 = [
+        (4, 180),
+        (0, 79),
+        (192, 180),
+        (227, 130),
+        (361, 180),
+        (436, 85),
+        (538, 54),
+        (538, 186)
+    ]
+    
+    opposite_hills1 = [
+        (539, 121),
+        (435, 180),
+        (640, 180)
+    ]
+
+    opposite_hills2 = [
+        (499, 144),
+        (424, 139),
+        (403, 180),
+        (499, 180)
+    ]
+
+    opposite_hills3 = [
+        (415, 159),
+        (329, 180),
+        (416, 179)
+    ]
+
+    opposite_hills4 = [
+        (286, 180),
+        (363, 147),
+        (448, 157),
+        (489, 89),
+        (539, 101),
+        (539, 180)
+    ]
+
+    # CLOUDS
+    clouds1 = [
+        (0, 82),
+        (1, 180),
+        (36, 36),
+        (235, 185),
+        (29, 186)
+    ]
+   
+    clouds2 = [
+        (256, 165),
+        (297, 179),
+        (381, 103),
+        (535, 1),
+        (537, 180)
+    ]
+
+    clouds3 = [
+        (63, 180),
+        (159, 120),
+        (280, 105),
+        (392, 143),
+        (263, 204)
+    ]
+    
+    # CLOUDS
+    pygame.draw.circle(screen, (255, 255, 255), (49, 79), 60)
+    pygame.draw.circle(screen, (255, 255, 255), (39, 39), 60)
+    pygame.draw.circle(screen, (255, 255, 255), (84, 36), 60)
+    pygame.draw.circle(screen, (255, 255, 255), (99, 91), 60)
+    pygame.draw.circle(screen, (255, 255, 255), (182, 129), 60)
+    pygame.draw.circle(screen, (255, 255, 255), (220, 116), 60)
+    pygame.draw.circle(screen, (255, 255, 255), (297, 129), 60)
+    pygame.draw.circle(screen, (255, 255, 255), (414, 97), 60)
+    pygame.draw.circle(screen, (255, 255, 255), (356, 124), 60)
+    pygame.draw.circle(screen, (255, 255, 255), (444, 7), 60)
+    pygame.draw.circle(screen, (255, 255, 255), (359, 161), 60)
+    
+
+    # CLOUD SHADOWS
+    pygame.draw.polygon(screen, (196, 194, 185), clouds1)
+    pygame.draw.polygon(screen, (196, 194, 185), clouds2)
+    pygame.draw.polygon(screen, (196, 194, 185), clouds3)
+    pygame.draw.circle(screen, (196, 194, 185), (151, 130), 30)
+    pygame.draw.circle(screen, (196, 194, 185), (108, 92), 30)
+    pygame.draw.circle(screen, (196, 194, 185), (50, 57), 30)
+    pygame.draw.circle(screen, (196, 194, 185), (68, 88), 30)
+    pygame.draw.circle(screen, (196, 194, 185), (224, 125), 30)
+    pygame.draw.circle(screen, (196, 194, 185), (292, 123), 30)
+    pygame.draw.circle(screen, (196, 194, 185), (12, 104), 30)
+    pygame.draw.circle(screen, (196, 194, 185), (384, 107), 30)
+    pygame.draw.circle(screen, (196, 194, 185), (445, 78), 30)
+    pygame.draw.circle(screen, (196, 194, 185), (481, 15), 30)
+    pygame.draw.circle(screen, (196, 194, 185), (525, 7), 30)
+    pygame.draw.circle(screen, (196, 194, 185), (186, 131), 30)
+    pygame.draw.circle(screen, (196, 194, 185), (320, 136), 30)
+    pygame.draw.circle(screen, (196, 194, 185), (472, 59), 30)
+
+    
+    # HILLS
+    pygame.draw.polygon(screen, (147, 152, 174), hills5)
+    pygame.draw.polygon(screen, (100, 122, 117), hills4)
+    pygame.draw.polygon(screen, (56, 70, 64), hills1)
+    pygame.draw.polygon(screen, (56, 70, 64), hills2)
+    pygame.draw.polygon(screen, (56, 70, 64), hills3)
+    
+
+    pygame.draw.polygon(screen, (100, 122, 117), opposite_hills4)
+    pygame.draw.polygon(screen, (56, 70, 64), opposite_hills1)
+    pygame.draw.polygon(screen, (56, 70, 64), opposite_hills2)
+    pygame.draw.polygon(screen, (56, 70, 64), opposite_hills3)
+
+
+    # LANDSCAPE
+    pygame.draw.rect(screen, (104, 138, 92), (0, 180, angie_width, 120))
+    pygame.draw.polygon(screen, (61, 84, 57), ((269, 180), (40, 270), (420, 270)))
+    pygame.draw.polygon(screen, (30, 51, 27), ((269, 180), (110, 270), (380, 270)))
+    pygame.draw.polygon(screen, (160, 178, 150), ((269, 180), (110, 270), (120, 270)))
+    pygame.draw.polygon(screen, (139, 129, 94), ((269, 180), (0, 270), (55, 270)))
+
+    # TREES
+    tree_x_angie = 0
+    tree_count = 26
+    # DRAW 5 TREES + EACH TREE SHIFTS 28 PIXELS
+    for tree_x_angie in range(tree_count):
+        pygame.draw.polygon(screen, (33, 31, 25), ((28 + tree_x_angie * 28, 160), (47 + tree_x_angie * 28, 180), (10 + tree_x_angie * 28, 180)))
+
+    # WIND
+    pygame.draw.line(screen, (255, 255, 255), (-10 + wind_x_angie, 130), (80 + wind_x_angie, 130), width=4)
+    pygame.draw.line(screen, (255, 255, 255), (-30 + wind_x_angie, 150), (150 + wind_x_angie, 150), width=4)
+    pygame.draw.line(screen, (255, 255, 255), (0 + wind_x_angie, 26), (60 + wind_x_angie, 26), width=4)
+    pygame.draw.line(screen, (255, 255, 255), (-60 + wind_x_angie, 85), (20 + wind_x_angie, 85), width=4)
+    pygame.draw.line(screen, (255, 255, 255), (-50 + wind_x_angie, 95), (100 + wind_x_angie, 95), width=4)
     # ----------------------------------------------------------------------------------------
+ 
 
     # Must have these coordinates
     x = 1920
